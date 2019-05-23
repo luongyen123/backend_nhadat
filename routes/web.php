@@ -14,6 +14,11 @@
 $router->get('/', function () use ($router) {
     return $router->app->version();
 });
-$router->get('/admmin/home', 'HomeController@index');
-$router->get('/admin/login', 'AuthController@index');
-$router->get('/admin/register', 'AuthController@register');
+$router->group(['prefix' => 'admin'], function () use ($router) {    
+    $router->get('login', 'AuthController@index');
+    $router->get('register', 'AuthController@register');
+    
+    $router->group(['middleware' => 'auth'], function () use ($router) {
+        $router->get('home', 'HomeController@index');
+    });
+});
