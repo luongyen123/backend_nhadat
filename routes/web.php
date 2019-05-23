@@ -17,7 +17,7 @@ $router->get('/', function () use ($router) {
 $router->group(['prefix' => 'admin'], function () use ($router) {    
     $router->get('login', 'AuthController@index');
     $router->get('register', 'AuthController@register');
-    
+
     $router->group(['middleware' => 'auth'], function () use ($router) {
         $router->get('home', 'HomeController@index');
     });

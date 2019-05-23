@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Services\ApiService;
+
 class AuthController extends Controller
 {
     /**
@@ -9,9 +11,10 @@ class AuthController extends Controller
      *
      * @return void
      */
-    public function __construct()
+    public $api;
+    public function __construct(ApiService $api)
     {
-        //
+        $this->api = $api;
     }
 
     public function index(){
