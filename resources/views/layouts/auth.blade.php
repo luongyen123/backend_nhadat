@@ -11,6 +11,7 @@
 
   <link rel="stylesheet" href="../dist/css/demo.css">
   <link rel="stylesheet" href="../dist/css/style.css">
+  @yield('css')
 </head>
 
 <body>
